@@ -1,6 +1,3 @@
-# Убран импорт my_books для устранения циклического импорта
-# Функции теперь принимают список книг как аргумент
-
 def search_by_author(author, books):
     found_books = []
     for book in books:
@@ -25,4 +22,5 @@ def search_by_title(title, books):
     if found_books:
         print(found_books)
     else:
+
         print("Книги с таким названием не найдены.")
