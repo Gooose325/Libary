@@ -45,7 +45,7 @@ def add_book_interactive(books: List[Dict]) -> Dict:
         'genre': genre
     }
 
-    # Исправлена опечатка boo k -> book
+     
     books.append(book)
     print(f"Книга '{title}' успешно добавлена с ID {book['id']}.")
 
@@ -66,8 +66,6 @@ def add_book(books: List[Dict], title: str, author: str, year: int, genre: str) 
 
 
 def remove_book(books: List[Dict], book_id: str) -> bool:
-    # Исправлены комментарии (добавлен #)
-    # Перебираем все книги в поиске нужного ID
     for i, book in enumerate(books):
         if book['id'] == book_id:
             # Удаляем книгу из списка
@@ -82,7 +80,7 @@ def remove_book(books: List[Dict], book_id: str) -> bool:
 my_books = []
 
 if __name__ == "__main__":
-    # Убран import main
+
     # Весь исполнительный код обернут в main блок
 
     # Добавление книг
@@ -130,7 +128,6 @@ if __name__ == "__main__":
             break
         else:
             author = input("Введите имя автора: ")
-            # Исправлен вызов: передан список my_books
             search_by_author(author, my_books)
 
     # Поиск по названию
@@ -140,5 +137,4 @@ if __name__ == "__main__":
             break
         else:
             title = input("Введите название: ")
-            # Исправлен вызов: передан список my_books
             search_by_title(title, my_books)
