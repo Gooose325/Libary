@@ -45,7 +45,6 @@ def add_book_interactive(books: List[Dict]) -> Dict:
         'genre': genre
     }
 
-     
     books.append(book)
     print(f"Книга '{title}' успешно добавлена с ID {book['id']}.")
 
@@ -66,6 +65,8 @@ def add_book(books: List[Dict], title: str, author: str, year: int, genre: str) 
 
 
 def remove_book(books: List[Dict], book_id: str) -> bool:
+    # Исправлены комментарии (добавлен #)
+    # Перебираем все книги в поиске нужного ID
     for i, book in enumerate(books):
         if book['id'] == book_id:
             # Удаляем книгу из списка
@@ -77,64 +78,3 @@ def remove_book(books: List[Dict], book_id: str) -> bool:
     return False
 
 
-my_books = []
-
-if __name__ == "__main__":
-
-    # Весь исполнительный код обернут в main блок
-
-    # Добавление книг
-    while True:
-        user_start = input("Добавить книгу? (да/нет): ").lower()
-        if user_start == "нет":
-            break
-        else:
-            add_book_interactive(my_books)
-
-    print("-" * 40)
-    print("Текущий список книг:")
-    for book in my_books:
-        print(f"Id: {book['id']}")
-        print(f"Название: {book['title']}")
-        print(f"Автор: {book['author']}")
-        print(f"Год: {book['year']}")
-        print("-" * 40)
-
-    # Удаление книг
-    while True:
-        user_start = input("Удалить книгу? (да/нет): ").lower()
-        if user_start == "нет":
-            break
-        else:
-            while True:
-                book_id = input("Введите id книги: ").strip()
-                if book_id:
-                    break
-                print("ID не может быть пустым. Попробуйте снова.")
-            remove_book(my_books, book_id)
-
-    # Вывод списка
-    while True:
-        user_start = input("Вывести список? (да/нет): ").lower()
-        if user_start == "нет":
-            break
-        else:
-            print(my_books)
-
-    # Поиск по автору
-    while True:
-        user_start = input("Поиск по автору? (да/нет): ").lower()
-        if user_start == "нет":
-            break
-        else:
-            author = input("Введите имя автора: ")
-            search_by_author(author, my_books)
-
-    # Поиск по названию
-    while True:
-        user_start = input("Поиск по названию? (да/нет): ").lower()
-        if user_start == "нет":
-            break
-        else:
-            title = input("Введите название: ")
-            search_by_title(title, my_books)
